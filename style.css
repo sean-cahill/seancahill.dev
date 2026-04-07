@@ -1399,34 +1399,6 @@ body:not(.is-loading) .loader {
 }
 
 /* ==========================================================================
-   MUSIC
-   ========================================================================== */
-
-.music {
-  padding: 8rem 4rem;
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.music__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-.music__embed-wrapper {
-  flex-grow: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--bg-core);
-}
-
-.music__meta {
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
    CONTACT & FOOTER
    ========================================================================== */
 
