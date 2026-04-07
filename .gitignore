@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+
+# AI agent config directories
+.agents/
+.claude/
+.commandcode/
+.factory/
+.goose/
+.kilocode/
+.kiro/
+.neovate/
+.openhands/
+.pi/
+.qoder/
+.roo/
+.sisyphus/
+.trae/
+.windsurf/
+.zencoder/
+
+# AI agent skills
+skills/
+skills-lock.json
+
+# Large generated assets
+full-site-screenshot.png

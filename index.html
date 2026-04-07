@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seán — Agentic Engineer</title>
+  <meta name="theme-color" content="#070707">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fixed Overlays & Canvas -->
+  <canvas id="network-canvas" class="network-canvas"></canvas>
+  <div class="noise-overlay"></div>
+  <div class="vignette-overlay"></div>
+
+  <!-- Navigation -->
+  <nav class="nav-island" id="nav">
+    <div class="nav-island__inner">
+      <a href="#" class="nav__logo" aria-label="Home">
+        <svg viewBox="0 0 100 64" width="48" height="30" fill="currentColor" class="nav__logo-svg">
+          <!-- Central face outline -->
+          <rect x="32" y="16" width="36" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="4"/>
+          <!-- Eyes -->
+          <circle cx="42" cy="28" r="3" fill="currentColor"/>
+          <circle cx="58" cy="28" r="3" fill="currentColor"/>
+          <!-- Smile -->
+          <path d="M 44 36 Q 50 42 56 36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <!-- Left connections -->
+          <path d="M 32 32 L 22 32 L 22 12 L 16 12" fill="none" stroke="currentColor" stroke-width="4"/>
+          <path d="M 22 32 L 22 52 L 16 52" fill="none" stroke="currentColor" stroke-width="4"/>
+          <!-- Right connections -->
+          <path d="M 68 32 L 78 32 L 78 12 L 84 12" fill="none" stroke="currentColor" stroke-width="4"/>
+          <path d="M 78 32 L 78 52 L 84 52" fill="none" stroke="currentColor" stroke-width="4"/>
+          <!-- Left Nodes -->
+          <rect x="4" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+          <rect x="4" y="46" width="12" height="12" rx="2" fill="currentColor"/>
+          <!-- Right Nodes -->
+          <rect x="84" y="6" width="12" height="12" rx="2" fill="currentColor"/>
+          <rect x="84" y="46" width="12" height="12" rx="2" fill="currentColor"/>
+        </svg>
+      </a>
+      <div class="nav__links">
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#approach" class="nav__link">Approach</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#music" class="nav__link">Music</a>
+        <a href="#contact" class="btn btn--primary nav__cta magnetic-btn">
+          <span class="btn__text">Get in touch</span>
+          <span class="btn__icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-arrow" aria-hidden="true">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__content">
+      <div class="eyebrow anim-reveal">
+        <span class="eyebrow__dot"></span>
+        <span class="eyebrow__text">Agentic Engineer / AI Enablement</span>
+      </div>
+      
+      <h1 class="hero__title">
+        <div class="title-line anim-reveal">Your business, smarter.</div>
+        <div class="title-line anim-reveal"><span class="text-accent">Let’s build it together.</span></div>
+      </h1>
+      
+      <p class="hero__sub anim-reveal" style="transition-delay: 100ms;">
+        I help small businesses map workflows, build custom AI agents, AI chatbots, and schedulers, while unlocking business analytics that actually fit how they work — without the jargon.
+      </p>
+    </div>
+  </section>
+
+  <!-- Workflow Architecture -->
+  <section class="workflow" id="workflow">
+    <div class="section-header anim-scroll">
+      <div class="section-header__inner">
+        <span class="section-header__number">01</span>
+        <h2 class="section-header__title">How It Works</h2>
+      </div>
+    </div>
+    
+    <div class="workflow-toggles anim-scroll">
+      <button class="workflow-toggle-btn active" data-target="workflow-service">Service Automation</button>
+      <button class="workflow-toggle-btn" data-target="workflow-sales">24/7 Sales Agent</button>
+      <button class="workflow-toggle-btn" data-target="workflow-exec">Executive Brief</button>
+    </div>
+
+    <!-- Workflow 1: Service Automation -->
+    <div class="workflow__container active" id="workflow-service">
+      <div class="workflow__wire">
+        <div class="workflow__wire-glow"></div>
+      </div>
+      
+      <!-- Node 1 -->
+      <div class="workflow-node anim-scroll">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                Gmail
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Client Email</h3>
+            <p class="workflow-node__desc">"Hey, can I get a balayage with Sarah this Thursday?" Webhook fires instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 2 -->
+      <div class="workflow-node anim-scroll">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2057 5.9847 5.9847 0 0 0 3.989-2.9 6.051 6.051 0 0 0-.7388-7.0732zM13.2599 22.5002c-1.2215 0-2.35-.4848-3.1927-1.2748l6.2477-3.6346a.845.845 0 0 0 .4274-.7337v-6.202l2.107 1.226c.014.008.023.02.037.028v7.049c0 1.938-1.577 3.541-3.6265 3.541zm-8.8077-3.2437a4.525 4.525 0 0 1-1.0215-2.3472l6.2525 3.6346a.845.845 0 0 0 .845 0l5.368-3.122-2.107-1.226-5.368 3.122a1.84 1.84 0 0 1-1.84 0l-5.368-3.122c-.014-.008-.028-.014-.037-.023v.005c0 1.938 1.577 3.541 3.6265 3.541zm-2.08-8.7582c0-1.2215.4848-2.35 1.2748-3.1927l3.6346 6.2477a.845.845 0 0 0 .7337.4274h6.202l-1.226 2.107c-.008.014-.02.023-.028.037H5.9235c-1.938 0-3.541-1.577-3.541-3.6265zm10.8877-7.2565a4.525 4.525 0 0 1 2.3472 1.0215l-3.6346 6.2525a.845.845 0 0 0 0 .845l3.122 5.368 1.226-2.107-3.122-5.368a1.84 1.84 0 0 1 0-1.84l3.122-5.368c.008-.014.014-.028.023-.037H13.26c-1.938 0-3.541 1.577-3.541 3.6265zm8.7582 2.08c0 1.2215-.4848 2.35-1.2748 3.1927l-3.6346-6.2477a.845.845 0 0 0-.7337-.4274h-6.202l1.226-2.107c.008-.014.02-.023.028-.037h7.049c1.938 0 3.541 1.577 3.541 3.6265zm-7.2565 10.8877a4.525 4.525 0 0 1-2.3472-1.0215l3.6346-6.2525a.845.845 0 0 0 0-.845l-3.122-5.368-1.226 2.107 3.122 5.368a1.84 1.84 0 0 1 0 1.84l-3.122 5.368c-.008.014-.014.028-.023.037h7.049c1.938 0 3.541-1.577 3.541-3.6265zM12 15.25a3.25 3.25 0 1 1 0-6.5 3.25 3.25 0 0 1 0 6.5z"/></svg>
+                OpenAI
+              </div>
+            </div>
+            <h3 class="workflow-node__title">AI Triage</h3>
+            <p class="workflow-node__desc">Extracts intent (balayage), preferred stylist (Sarah), and timeframe (Thursday).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 3 -->
+      <div class="workflow-node anim-scroll">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+                Google Calendar
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Check & Draft</h3>
+            <p class="workflow-node__desc">Checks Sarah's calendar for a 2-hour opening on Thursday and drafts a tentative hold.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 4 -->
+      <div class="workflow-node anim-scroll">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-3h4v3zm0-5H7v-3h4v3zm6 5h-4v-3h4v3zm0-5h-4v-3h4v3z"/></svg>
+                Google Sheets
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Log to CRM</h3>
+            <p class="workflow-node__desc">Updates the salon's client tracker with the new booking details and "Pending" status.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 5 -->
+      <div class="workflow-node anim-scroll">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Stylist Approval</h3>
+            <p class="workflow-node__desc">Texts Sarah: "New balayage request for Thursday at 2 PM. Reply YES to confirm."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow 2: 24/7 Sales Agent -->
+    <div class="workflow__container" id="workflow-sales">
+      <div class="workflow__wire">
+        <div class="workflow__wire-glow"></div>
+      </div>
+      
+      <!-- Node 1 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                Website Chat
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Visitor Inquiry</h3>
+            <p class="workflow-node__desc">"Do you support enterprise SSO and what's your pricing?"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 2 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                Vector DB
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Knowledge Retrieval</h3>
+            <p class="workflow-node__desc">Searches company documentation and pricing PDFs for exact, up-to-date answers.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 3 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2057 5.9847 5.9847 0 0 0 3.989-2.9 6.051 6.051 0 0 0-.7388-7.0732zM13.2599 22.5002c-1.2215 0-2.35-.4848-3.1927-1.2748l6.2477-3.6346a.845.845 0 0 0 .4274-.7337v-6.202l2.107 1.226c.014.008.023.02.037.028v7.049c0 1.938-1.577 3.541-3.6265 3.541zm-8.8077-3.2437a4.525 4.525 0 0 1-1.0215-2.3472l6.2525 3.6346a.845.845 0 0 0 .845 0l5.368-3.122-2.107-1.226-5.368 3.122a1.84 1.84 0 0 1-1.84 0l-5.368-3.122c-.014-.008-.028-.014-.037-.023v.005c0 1.938 1.577 3.541 3.6265 3.541zm-2.08-8.7582c0-1.2215.4848-2.35 1.2748-3.1927l3.6346 6.2477a.845.845 0 0 0 .7337.4274h6.202l-1.226 2.107c-.008.014-.02.023-.028.037H5.9235c-1.938 0-3.541-1.577-3.541-3.6265zm10.8877-7.2565a4.525 4.525 0 0 1 2.3472 1.0215l-3.6346 6.2525a.845.845 0 0 0 0 .845l3.122 5.368 1.226-2.107-3.122-5.368a1.84 1.84 0 0 1 0-1.84l3.122-5.368c.008-.014.014-.028.023-.037H13.26c-1.938 0-3.541 1.577-3.541 3.6265zm8.7582 2.08c0 1.2215-.4848 2.35-1.2748 3.1927l-3.6346-6.2477a.845.845 0 0 0-.7337-.4274h-6.202l1.226-2.107c.008-.014.02-.023.028-.037h7.049c1.938 0 3.541 1.577 3.541 3.6265zm-7.2565 10.8877a4.525 4.525 0 0 1-2.3472-1.0215l3.6346-6.2525a.845.845 0 0 0 0-.845l-3.122-5.368-1.226 2.107 3.122 5.368a1.84 1.84 0 0 1 0 1.84l-3.122 5.368c-.008.014-.014.028-.023.037h7.049c1.938 0 3.541-1.577 3.541-3.6265zM12 15.25a3.25 3.25 0 1 1 0-6.5 3.25 3.25 0 0 1 0 6.5z"/></svg>
+                OpenAI
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Answer & Qualify</h3>
+            <p class="workflow-node__desc">Provides accurate answers and detects high-intent buying signals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 4 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                HubSpot
+              </div>
+            </div>
+            <h3 class="workflow-node__title">CRM Entry</h3>
+            <p class="workflow-node__desc">Creates a new lead profile with the chat transcript and lead score attached.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 5 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+                Calendly
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Book Demo</h3>
+            <p class="workflow-node__desc">Drops a booking link directly in the chat to seamlessly schedule a sales call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workflow 3: Executive Brief -->
+    <div class="workflow__container" id="workflow-exec">
+      <div class="workflow__wire">
+        <div class="workflow__wire-glow"></div>
+      </div>
+      
+      <!-- Node 1 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                CRON
+              </div>
+            </div>
+            <h3 class="workflow-node__title">6:00 AM Trigger</h3>
+            <p class="workflow-node__desc">Automated schedule fires every morning before the owner wakes up.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 2 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 14H7v-3h4v3zm0-5H7v-3h4v3zm6 5h-4v-3h4v3zm0-5h-4v-3h4v3z"/></svg>
+                Data Aggregation
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Fetch Context</h3>
+            <p class="workflow-node__desc">Pulls unread Gmails, today's Google Calendar events, and high-priority Slack mentions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 3 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2057 5.9847 5.9847 0 0 0 3.989-2.9 6.051 6.051 0 0 0-.7388-7.0732zM13.2599 22.5002c-1.2215 0-2.35-.4848-3.1927-1.2748l6.2477-3.6346a.845.845 0 0 0 .4274-.7337v-6.202l2.107 1.226c.014.008.023.02.037.028v7.049c0 1.938-1.577 3.541-3.6265 3.541zm-8.8077-3.2437a4.525 4.525 0 0 1-1.0215-2.3472l6.2525 3.6346a.845.845 0 0 0 .845 0l5.368-3.122-2.107-1.226-5.368 3.122a1.84 1.84 0 0 1-1.84 0l-5.368-3.122c-.014-.008-.028-.014-.037-.023v.005c0 1.938 1.577 3.541 3.6265 3.541zm-2.08-8.7582c0-1.2215.4848-2.35 1.2748-3.1927l3.6346 6.2477a.845.845 0 0 0 .7337.4274h6.202l-1.226 2.107c-.008.014-.02.023-.028.037H5.9235c-1.938 0-3.541-1.577-3.541-3.6265zm10.8877-7.2565a4.525 4.525 0 0 1 2.3472 1.0215l-3.6346 6.2525a.845.845 0 0 0 0 .845l3.122 5.368 1.226-2.107-3.122-5.368a1.84 1.84 0 0 1 0-1.84l3.122-5.368c.008-.014.014-.028.023-.037H13.26c-1.938 0-3.541 1.577-3.541 3.6265zm8.7582 2.08c0 1.2215-.4848 2.35-1.2748 3.1927l-3.6346-6.2477a.845.845 0 0 0-.7337-.4274h-6.202l1.226-2.107c.008-.014.02-.023.028-.037h7.049c1.938 0 3.541 1.577 3.541 3.6265zm-7.2565 10.8877a4.525 4.525 0 0 1-2.3472-1.0215l3.6346-6.2525a.845.845 0 0 0 0-.845l-3.122-5.368-1.226 2.107 3.122 5.368a1.84 1.84 0 0 1 0 1.84l-3.122 5.368c-.008.014-.014.028-.023.037h7.049c1.938 0 3.541-1.577 3.541-3.6265zM12 15.25a3.25 3.25 0 1 1 0-6.5 3.25 3.25 0 0 1 0 6.5z"/></svg>
+                OpenAI
+              </div>
+            </div>
+            <h3 class="workflow-node__title">LLM Synthesis</h3>
+            <p class="workflow-node__desc">Drafts a beautiful, concise summary of the day's priorities, meetings, and urgent items.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Node 4 -->
+      <div class="workflow-node">
+        <div class="workflow-node__dot"></div>
+        <div class="bento-card__shell workflow-node__shell">
+          <div class="bento-card__core workflow-node__core">
+            <div class="workflow-node__meta">
+              <div class="workflow-brand">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="brand-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </div>
+            </div>
+            <h3 class="workflow-node__title">Delivery</h3>
+            <p class="workflow-node__desc">Sent directly to the owner's phone. They wake up fully prepared for the day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work (Deployed Agents) -->
+  <section class="work" id="work">
+    <div class="section-header anim-scroll">
+      <div class="section-header__inner">
+        <span class="section-header__number">02</span>
+        <h2 class="section-header__title">Deployed Agents</h2>
+      </div>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Agent 1 (Large) -->
+      <article class="bento-card bento-card--large anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Slack / KB / NLP</span>
+              <span class="agent__impact">Weekly eval framework</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">AI First Responder</h3>
+              <p class="agent__desc">Front-line AI support for sales and customer service teams. Monitors internal channels, answers questions instantly from a curated knowledge base, and surfaces documentation gaps.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Eliminates interruption-driven support. Continuous knowledge base improvement via automated gap analysis.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Agent 2 (Small) -->
+      <article class="bento-card bento-card--small anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">GDPR / Automation</span>
+              <span class="agent__impact">7x faster</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Compliance Responder</h3>
+              <p class="agent__desc">Generates compliant, tone-perfect responses to sensitive customer inquiries from structured inputs. Slots directly into existing workflows with strict guardrails for data handling.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>35 min → 5 min per response. Full legal and brand compliance maintained.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Agent 3 (Small) -->
+      <article class="bento-card bento-card--small anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">QA / LangFuse</span>
+              <span class="agent__impact">7x faster</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Automated QA Reviewer</h3>
+              <p class="agent__desc">Automated quality assessment of customer service interactions. Scores accuracy, tone, and resolution across thousands of sessions, replacing slow manual review loops.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>15-20 min → 2-3 min per evaluation cycle. 100% coverage of all chats.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Agent 4 (Large) -->
+      <article class="bento-card bento-card--large anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">NL-to-SQL / Snowflake / dbt</span>
+              <span class="agent__impact">~10x faster</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Data Analyst Agent</h3>
+              <p class="agent__desc">Natural language to SQL queries, grounded in your company's data documentation. Business users ask questions in plain English; the agent writes, validates, and runs the query.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Saves 16-20 hours/month of analyst time. Instant self-serve data access for non-technical teams.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Agent 5 (Full Width) -->
+      <article class="bento-card bento-card--full anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">dbt / SQL Lineage</span>
+              <span class="agent__impact">On-demand clarity</span>
+            </div>
+            <div class="agent__content">
+              <div class="agent__split">
+                <div class="agent__split-left">
+                  <h3 class="agent__name">Metric Explainer</h3>
+                  <p class="agent__desc">Explains complex business metrics in plain English by tracing data lineage back to the source. Stakeholders get instant, accurate definitions without interrupting the data team.</p>
+                </div>
+                <div class="agent__split-right">
+                  <div class="agent__result">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span>On-demand metric transparency. Reduced "what does this number mean?" interrupts.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="approach" id="approach">
+    <div class="section-header anim-scroll">
+      <div class="section-header__inner">
+        <span class="section-header__number">03</span>
+        <h2 class="section-header__title">How I Work</h2>
+      </div>
+    </div>
+    
+    <div class="editorial-list">
+      <div class="editorial-item anim-scroll">
+        <div class="editorial-item__num">01</div>
+        <div class="editorial-item__content">
+          <h4>Build first, plan second</h4>
+          <p>Ship a v1 fast. Learn from real usage. Iterate with data, not assumptions.</p>
+        </div>
+      </div>
+      <div class="editorial-item anim-scroll">
+        <div class="editorial-item__num">02</div>
+        <div class="editorial-item__content">
+          <h4>Enable, don’t gatekeep</h4>
+          <p>The goal isn’t to be the person who builds every agent. It’s to make everyone dangerous enough to build their own.</p>
+        </div>
+      </div>
+      <div class="editorial-item anim-scroll">
+        <div class="editorial-item__num">03</div>
+        <div class="editorial-item__content">
+          <h4>Measure everything</h4>
+          <p>Every agent ships with an evaluation framework. Weekly reviews, coverage tracking, ROI metrics. If you can’t measure it, it’s a toy.</p>
+        </div>
+      </div>
+      <div class="editorial-item anim-scroll">
+        <div class="editorial-item__num">04</div>
+        <div class="editorial-item__content">
+          <h4>Cross-functional by default</h4>
+          <p>5+ years across Ops, Product, Sales, RevOps, and Analytics. I build agents that solve real business problems because I’ve lived in the business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-split anim-scroll">
+      <div class="about-split__left">
+        <div class="section-header">
+          <div class="section-header__inner">
+            <span class="section-header__number">04</span>
+            <h2 class="section-header__title">About</h2>
+          </div>
+        </div>
+        <p class="about__lead">Data Analyst turned AI builder. 5+ years at SumUp, now focused on agentic engineering and AI enablement.</p>
+        
+        <div class="about__portrait-wrapper anim-scroll" style="transition-delay: 150ms;">
+          <div class="bento-card__shell about__portrait-shell">
+            <div class="bento-card__core about__portrait-core">
+              <div class="about__portrait-img-wrapper">
+                <img src="sean-portrait.jpg" alt="Portrait of Seán on a mountain summit in Snowdonia" class="about__portrait-img" width="380" height="475" loading="lazy">
+                <div class="about__portrait-overlay"></div>
+              </div>
+              <div class="about__portrait-meta">
+                <div class="meta-label">
+                  <span class="meta-dot"></span>
+                  Snowdonia Summit
+                </div>
+                <div class="meta-value">4:5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-split__right">
+        <div class="about__text">
+          <p>I’ve worked across the full merchant lifecycle — onboarding, sales, product, ops, payments, revenue. That cross-functional context is what makes my agents useful: they solve problems I’ve actually seen, for teams I’ve actually worked with.</p>
+          <p>Outside of work, I play drums in a band called <strong>Whirlpool</strong>, make electronic music in Ableton as <strong>Glan Suas</strong>, and build passion projects. I also love cooking, permaculture, hiking, and growing my own veg on my Berlin balcony. Originally from Dublin.</p>
+        </div>
+        
+        <div class="about__stack">
+          <h4 class="stack__title">Stack</h4>
+          <div class="pills-grid">
+            <div class="pill-shell"><div class="pill-core">Python</div></div>
+            <div class="pill-shell"><div class="pill-core">n8n</div></div>
+            <div class="pill-shell"><div class="pill-core">SQL</div></div>
+            <div class="pill-shell"><div class="pill-core">dbt</div></div>
+            <div class="pill-shell"><div class="pill-core">Snowflake</div></div>
+            <div class="pill-shell"><div class="pill-core">LangDock</div></div>
+            <div class="pill-shell"><div class="pill-core">Cursor</div></div>
+            <div class="pill-shell"><div class="pill-core">Git</div></div>
+            <div class="pill-shell"><div class="pill-core">Tableau</div></div>
+            <div class="pill-shell"><div class="pill-core">Ableton</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Music -->
+  <section class="music" id="music">
+    <div class="section-header anim-scroll">
+      <div class="section-header__inner">
+        <span class="section-header__number">05</span>
+        <h2 class="section-header__title">Music</h2>
+      </div>
+    </div>
+    
+    <div class="music-card anim-scroll">
+      <div class="bento-card__shell">
+        <div class="bento-card__core music-card__inner">
+          <div class="music__embed-wrapper">
+            <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/v=2/album=491072294/size=large/bgcol=070707/linkcol=d3b994/tracklist=false/artwork=small/transparent=true/" seamless></iframe>
+          </div>
+          <div class="music__meta">
+            <a href="https://glansuas.bandcamp.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary magnetic-btn">
+              <span class="btn__text">Listen on Bandcamp</span>
+              <span class="btn__icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-arrow" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-card anim-scroll">
+      <div class="bento-card__shell">
+        <div class="bento-card__core contact-card__inner">
+          <h2 class="contact__title">Let’s build something.</h2>
+          <p class="contact__sub">Open to AI enablement roles, agent consulting, and interesting side projects.</p>
+          <div class="contact__actions">
+            <a href="mailto:seanrcahill@gmail.com" class="btn btn--primary magnetic-btn">
+              <span class="btn__text">seanrcahill@gmail.com</span>
+              <span class="btn__icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-arrow" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </span>
+            </a>
+            <div class="contact__socials">
+              <a href="https://wa.me/353872045947" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 6px; vertical-align: text-bottom;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
+              <span class="divider">/</span>
+              <a href="https://www.linkedin.com/in/seancahill94/" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn">LinkedIn</a>
+              <span class="divider">/</span>
+              <a href="https://github.com/sean" class="social-link magnetic-btn">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer anim-scroll">
+    <div class="footer__inner">
+      <span class="footer__copy">© 2026 Seán</span>
+      <span class="footer__loc">Dublin / Berlin</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Custom Geometric Cursor -->
+  <div class="cursor-ring" id="cursor-ring"></div>
+</body>
+</html>
