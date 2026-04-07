@@ -91,11 +91,11 @@
     const y = window.scrollY;
 
     if (y > 50) {
-      navInner.style.background = 'rgba(10, 10, 10, 0.85)';
+      navInner.style.background = 'rgba(248, 252, 246, 0.82)';
       navInner.style.borderColor = 'var(--border-highlight)';
       navInner.classList.add('scrolled');
     } else {
-      navInner.style.background = 'rgba(10, 10, 10, 0.6)';
+      navInner.style.background = 'rgba(252, 255, 251, 0.58)';
       navInner.style.borderColor = 'var(--border-subtle)';
       navInner.classList.remove('scrolled');
     }
@@ -140,20 +140,11 @@
       const x = e.clientX - rect.left - cx;
       const y = e.clientY - rect.top - cy;
 
-      el.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px) rotate(${x * 0.05}deg)`;
-
-      const btnText = el.querySelector('.btn__text');
-      if (btnText) {
-        btnText.style.textShadow =
-          `${-x * 0.08}px ${-y * 0.08}px 0 rgba(255,80,80,0.4), ` +
-          `${x * 0.08}px ${y * 0.08}px 0 rgba(80,255,255,0.4)`;
-      }
+      el.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) rotate(${x * 0.02}deg)`;
     });
 
     el.addEventListener('mouseleave', () => {
       el.style.transform = 'translate(0,0) rotate(0deg)';
-      const btnText = el.querySelector('.btn__text');
-      if (btnText) btnText.style.textShadow = 'none';
     });
   });
 
@@ -247,8 +238,8 @@
       const y = e.clientY - rect.top;
       const cx = rect.width / 2;
       const cy = rect.height / 2;
-      el.style.setProperty('--rx', `${((y - cy) / cy) * -5}deg`);
-      el.style.setProperty('--ry', `${((x - cx) / cx) * 5}deg`);
+      el.style.setProperty('--rx', `${((y - cy) / cy) * -3.5}deg`);
+      el.style.setProperty('--ry', `${((x - cx) / cx) * 3.5}deg`);
     });
 
     el.addEventListener('mouseleave', () => {
@@ -456,16 +447,16 @@
 
       const rFactor = Math.min(cw, ch) * 0.35;
       blobs = [
-        new AuroraBlob(cw * 0.3, ch * 0.3, rFactor + 100, 211, 185, 148, 0.12),
-        new AuroraBlob(cw * 0.7, ch * 0.5, rFactor + 50, 160, 130, 90, 0.08),
-        new AuroraBlob(cw * 0.5, ch * 0.7, rFactor + 80, 100, 90, 75, 0.06),
-        new AuroraBlob(cw * 0.2, ch * 0.8, rFactor, 180, 160, 130, 0.05),
+        new AuroraBlob(cw * 0.24, ch * 0.26, rFactor + 110, 122, 158, 125, 0.14),
+        new AuroraBlob(cw * 0.74, ch * 0.44, rFactor + 70, 158, 191, 154, 0.11),
+        new AuroraBlob(cw * 0.52, ch * 0.74, rFactor + 90, 194, 216, 188, 0.12),
+        new AuroraBlob(cw * 0.18, ch * 0.82, rFactor + 10, 101, 138, 107, 0.09),
       ];
     }
 
     function drawAurora() {
       ctx.clearRect(0, 0, cw, ch);
-      ctx.fillStyle = '#070707';
+      ctx.fillStyle = '#edf5ea';
       ctx.fillRect(0, 0, cw, ch);
 
       blobs.forEach((blob) => {
@@ -486,7 +477,7 @@
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    ctx.fillStyle = '#070707';
+    ctx.fillStyle = '#edf5ea';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 

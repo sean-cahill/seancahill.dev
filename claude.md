@@ -18,8 +18,8 @@ A premium, Awwwards-tier portfolio website for Sean Cahill, an Agentic Engineer.
   - Adhere strictly to the Web Interface Guidelines (use curly quotes, `aria-hidden="true"` on decorative icons, `text-wrap: balance` on headings, `:focus-visible` for accessibility, etc.).
 
 ## Content Details
-- **Role:** Agentic Engineer / AI Enablement
-- **Services:** Map workflows, build custom AI agents, AI chatbots, schedulers, and unlock business analytics.
+- **Role:** Practical AI Systems Builder / Agentic Engineer
+- **Services:** Reporting systems, ops automation, internal copilots, workflow design, and lightweight AI tools for small teams.
 - **Location Base:** Berlin, Germany (originally from Dublin).
 - **Hobbies:** Plays drums in "Whirlpool", produces electronic music in Ableton as "Glan Suas", hiking, cooking, permaculture, balcony veg growing, building projects.
 - **Contact:** seanrcahill@gmail.com
@@ -27,7 +27,7 @@ A premium, Awwwards-tier portfolio website for Sean Cahill, an Agentic Engineer.
 - **Portrait:** Taken at Snowdonia Summit.
 
 ## Current "Next Level" Goal
-To push the interactivity even further — adopting a bold, highly interactive, almost psychedelic/game-like dimension that makes exploring the site an unforgettable, addictive experience, while maintaining the high-end Awwwards aesthetic.
+To make the site feel unmistakably premium and memorable through restraint: sharp copy, confident hierarchy, and subtle interaction that feels designed rather than flashy.
 
 ---
 
@@ -52,3 +52,7 @@ At the end of every significant task, feature implementation, or bug fix, you MU
   - **Fix:** Removed `cursor: none` to keep the system cursor visible, and retained only the smooth, trailing gold ring for a premium interactive enhancement.
 - **Issue:** The custom cursor ring initialized at `0,0` (top-left) and flew in awkwardly.
   - **Fix:** Set initial opacity to 0 and instantly snap coordinates on the first `mousemove` event before fading in.
+- **Issue:** The site copy sounded too broad and AI-generated.
+  - **Fix:** Reframe the messaging around practical AI systems for small teams, with concrete language about reporting, ops, internal questions, and manual work.
+- **Issue:** Too many simultaneous motion treatments made the page feel more like a demo than a premium portfolio.
+  - **Fix:** Keep one elegant highlight at a time, reduce blur and hover intensity, and prefer quieter motion over stacked looping effects.
