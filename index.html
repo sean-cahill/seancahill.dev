@@ -10,7 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-loading">
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader__col">
+      <span class="loader__word">Se&aacute;n Cahill</span>
+    </div>
+    <div class="loader__line"></div>
+  </div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- Fixed Overlays & Canvas -->
   <canvas id="network-canvas" class="network-canvas"></canvas>
   <div class="noise-overlay"></div>
@@ -59,6 +70,8 @@
     </div>
   </nav>
 
+  <main id="main-content">
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero__content">
@@ -68,8 +81,8 @@
       </div>
       
       <h1 class="hero__title">
-        <div class="title-line anim-reveal">Your business, smarter.</div>
-        <div class="title-line anim-reveal"><span class="text-accent">Let’s build it together.</span></div>
+        <div class="title-line anim-reveal"><span class="word" style="--i:0"><span class="word__inner">Your</span></span> <span class="word" style="--i:1"><span class="word__inner">business,</span></span> <span class="word" style="--i:2"><span class="word__inner">smarter.</span></span></div>
+        <div class="title-line anim-reveal"><span class="word" style="--i:3"><span class="word__inner text-accent">Let’s</span></span> <span class="word" style="--i:4"><span class="word__inner text-accent">build</span></span> <span class="word" style="--i:5"><span class="word__inner text-accent">it</span></span> <span class="word" style="--i:6"><span class="word__inner text-accent">together.</span></span></div>
       </h1>
       
       <p class="hero__sub anim-reveal" style="transition-delay: 100ms;">
@@ -77,6 +90,18 @@
       </p>
     </div>
   </section>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__content">AI Agents &mdash; Workflow Automation &mdash; Business Analytics &mdash; Custom Chatbots &mdash; Data Pipelines &mdash; AI Enablement &mdash;&nbsp;</span>
+      <span class="marquee__content">AI Agents &mdash; Workflow Automation &mdash; Business Analytics &mdash; Custom Chatbots &mdash; Data Pipelines &mdash; AI Enablement &mdash;&nbsp;</span>
+    </div>
+    <div class="marquee__track marquee__track--reverse">
+      <span class="marquee__content">n8n &mdash; Python &mdash; OpenAI &mdash; Snowflake &mdash; dbt &mdash; Langdock &mdash; Cursor &mdash; Tableau &mdash;&nbsp;</span>
+      <span class="marquee__content">n8n &mdash; Python &mdash; OpenAI &mdash; Snowflake &mdash; dbt &mdash; Langdock &mdash; Cursor &mdash; Tableau &mdash;&nbsp;</span>
+    </div>
+  </div>
 
   <!-- Workflow Architecture -->
   <section class="workflow" id="workflow">
@@ -566,7 +591,7 @@
             <div class="pill-shell"><div class="pill-core">SQL</div></div>
             <div class="pill-shell"><div class="pill-core">dbt</div></div>
             <div class="pill-shell"><div class="pill-core">Snowflake</div></div>
-            <div class="pill-shell"><div class="pill-core">LangDock</div></div>
+            <div class="pill-shell"><div class="pill-core">Langdock</div></div>
             <div class="pill-shell"><div class="pill-core">Cursor</div></div>
             <div class="pill-shell"><div class="pill-core">Git</div></div>
             <div class="pill-shell"><div class="pill-core">Tableau</div></div>
@@ -630,8 +655,6 @@
               </a>
               <span class="divider">/</span>
               <a href="https://www.linkedin.com/in/seancahill94/" target="_blank" rel="noopener noreferrer" class="social-link magnetic-btn">LinkedIn</a>
-              <span class="divider">/</span>
-              <a href="https://github.com/sean" class="social-link magnetic-btn">GitHub</a>
             </div>
           </div>
         </div>
@@ -646,9 +669,13 @@
     </div>
   </footer>
 
+  </main>
+
   <script src="script.js"></script>
 
-  <!-- Custom Geometric Cursor -->
+  <!-- Custom Cursor System -->
   <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-trail" aria-hidden="true"></div>
+  <div class="cursor-trail" aria-hidden="true"></div>
 </body>
 </html>
