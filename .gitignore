@@ -28,3 +28,6 @@ skills-lock.json
 
 # Large generated assets
 full-site-screenshot.png
+
+# Local backup of portrait before crops (do not commit)
+sean-portrait-original.jpg

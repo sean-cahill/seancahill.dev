@@ -56,3 +56,13 @@ At the end of every significant task, feature implementation, or bug fix, you MU
   - **Fix:** Reframe the messaging around practical AI systems for small teams, with concrete language about reporting, ops, internal questions, and manual work.
 - **Issue:** Too many simultaneous motion treatments made the page feel more like a demo than a premium portfolio.
   - **Fix:** Keep one elegant highlight at a time, reduce blur and hover intensity, and prefer quieter motion over stacked looping effects.
+
+## [Security (static site, Apr 2026)]
+- **Skill:** Installed ecosystem skill `security-review` from [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code) at `.agents/skills/security-review/` (use find-skills / `npx skills add` for updates). Reviewed checklist items that apply to this repo (no backend, no auth, no user input endpoints).
+- **Secrets:** No API keys, tokens, or `.env` in tracked HTML/CSS/JS; keep it that way on a public GitHub repo.
+- **XSS / DOM:** Footer year updated via `textContent` instead of `innerHTML` to avoid HTML sinks; only trusted literals in DOM.
+- **Third parties:** Google Fonts (`fonts.googleapis.com`, `fonts.gstatic.com`); tradeoff is Google as a dependency (privacy). Optional future hardening: self-host WOFF2 and tighten CSP further.
+- **External tabs:** All `target="_blank"` links use `rel="noopener noreferrer"`.
+- **Meta hardening:** `Content-Security-Policy` (allows self, Google font CSS/static, inline `style` attributes used in markup), `Referrer-Policy` via `meta name="referrer"`, `Permissions-Policy` for sensitive APIs, `upgrade-insecure-requests`.
+- **Hosting:** GitHub Pages serves HTTPS but does not let you set custom security headers (e.g. `Strict-Transport-Security`, `X-Content-Type-Options`) in-repo. For full header control (HSTS, `X-Frame-Options` / `frame-ancestors`, report-uri), use a host or edge that supports header config (Netlify `_headers`, Cloudflare, Vercel `vercel.json`, etc.) or a reverse proxy.
+- **Exposure:** Public `mailto:` and WhatsApp links are intentional; expect crawlers and spam risk like any public contact.

@@ -12,7 +12,10 @@
 
   const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+  let prefersReducedMotion = reducedMotionQuery.matches;
+  let hasFinePointer = finePointerQuery.matches;
 
   let mouseX = -200, mouseY = -200;
   let smoothScroll = 0;
@@ -43,13 +46,13 @@
       document.body.classList.add('is-loaded');
 
       setTimeout(() => {
-        revealHero(100);
-      }, 300);
+        revealHero(60);
+      }, 120);
 
       setTimeout(() => {
         if (loader && loader.parentNode) loader.remove();
-      }, 1200);
-    }, 1800);
+      }, 700);
+    }, 650);
   }
 
   function revealHero(baseDelay) {
@@ -91,11 +94,11 @@
     const y = window.scrollY;
 
     if (y > 50) {
-      navInner.style.background = 'rgba(248, 252, 246, 0.82)';
+      navInner.style.background = 'rgba(250, 253, 249, 0.84)';
       navInner.style.borderColor = 'var(--border-highlight)';
       navInner.classList.add('scrolled');
     } else {
-      navInner.style.background = 'rgba(252, 255, 251, 0.58)';
+      navInner.style.background = 'rgba(252, 255, 251, 0.72)';
       navInner.style.borderColor = 'var(--border-subtle)';
       navInner.classList.remove('scrolled');
     }
@@ -134,13 +137,14 @@
 
   document.querySelectorAll('.magnetic-btn').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
+      if (prefersReducedMotion || !hasFinePointer) return;
       const rect = el.getBoundingClientRect();
       const cx = rect.width / 2;
       const cy = rect.height / 2;
       const x = e.clientX - rect.left - cx;
       const y = e.clientY - rect.top - cy;
 
-      el.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px) rotate(${x * 0.02}deg)`;
+      el.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px) rotate(${x * 0.012}deg)`;
     });
 
     el.addEventListener('mouseleave', () => {
@@ -157,7 +161,7 @@
   let ringX = -200, ringY = -200;
   let trailData = Array.from(cursorTrails).map(() => ({ x: -200, y: -200 }));
 
-  if (cursorRing && !prefersReducedMotion) {
+  if (cursorRing && !prefersReducedMotion && hasFinePointer) {
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -208,6 +212,7 @@
     });
 
     onRaf(() => {
+      if (prefersReducedMotion || !hasFinePointer) return;
       ringX = lerp(ringX, mouseX, 0.15);
       ringY = lerp(ringY, mouseY, 0.15);
       cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
@@ -233,13 +238,14 @@
 
   document.querySelectorAll('.bento-card__shell, .about__portrait-shell').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
+      if (prefersReducedMotion || !hasFinePointer) return;
       const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const cx = rect.width / 2;
       const cy = rect.height / 2;
-      el.style.setProperty('--rx', `${((y - cy) / cy) * -3.5}deg`);
-      el.style.setProperty('--ry', `${((x - cx) / cx) * 3.5}deg`);
+      el.style.setProperty('--rx', `${((y - cy) / cy) * -2}deg`);
+      el.style.setProperty('--ry', `${((x - cx) / cx) * 2}deg`);
     });
 
     el.addEventListener('mouseleave', () => {
@@ -256,26 +262,42 @@
   const toggleBtns = document.querySelectorAll('.workflow-toggle-btn');
   const workflowContainers = document.querySelectorAll('.workflow__container');
 
-  if (toggleBtns.length && workflowContainers.length) {
-    toggleBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        toggleBtns.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const targetId = btn.getAttribute('data-target');
+  function setActiveWorkflow(targetId) {
+    toggleBtns.forEach((button) => {
+      const isActive = button.getAttribute('data-target') === targetId;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      button.tabIndex = isActive ? 0 : -1;
+    });
 
-        workflowContainers.forEach((c) => {
-          if (c.id === targetId) {
-            c.classList.add('active');
-            setTimeout(() => window.dispatchEvent(new Event('scroll')), 50);
-          } else {
-            c.classList.remove('active');
-            c.querySelectorAll('.workflow-node').forEach((n) => n.classList.remove('active'));
-            const glow = c.querySelector('.workflow__wire-glow');
-            if (glow) glow.style.height = '0%';
-          }
-        });
+    workflowContainers.forEach((container) => {
+      const isActive = container.id === targetId;
+      container.classList.toggle('active', isActive);
+      container.hidden = !isActive;
+      if (isActive) {
+        setTimeout(() => window.dispatchEvent(new Event('scroll')), 50);
+      } else {
+        container.querySelectorAll('.workflow-node').forEach((n) => n.classList.remove('active'));
+        const glow = container.querySelector('.workflow__wire-glow');
+        if (glow) glow.style.height = '0%';
+      }
+    });
+  }
+
+  if (toggleBtns.length && workflowContainers.length) {
+    toggleBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => setActiveWorkflow(btn.getAttribute('data-target')));
+      btn.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+        event.preventDefault();
+        const nextIndex = event.key === 'ArrowRight'
+          ? (index + 1) % toggleBtns.length
+          : (index - 1 + toggleBtns.length) % toggleBtns.length;
+        toggleBtns[nextIndex].focus();
+        setActiveWorkflow(toggleBtns[nextIndex].getAttribute('data-target'));
       });
     });
+    setActiveWorkflow(document.querySelector('.workflow-toggle-btn.active')?.getAttribute('data-target') || workflowContainers[0].id);
   }
 
   function updateWorkflowWire() {
@@ -339,26 +361,17 @@
      PARALLAX DEPTH
      ======================================================================== */
 
-  const parallaxHeaders = document.querySelectorAll('.section-header');
   const portraitWrapper = document.querySelector('.about__portrait-wrapper');
 
   function updateParallax() {
+    if (prefersReducedMotion) return;
     const wh = window.innerHeight;
-
-    parallaxHeaders.forEach((header) => {
-      const rect = header.getBoundingClientRect();
-      if (rect.top < wh && rect.bottom > 0) {
-        const progress = (wh - rect.top) / (wh + rect.height);
-        const offset = (progress - 0.5) * -30;
-        header.style.transform = `translateY(${offset}px)`;
-      }
-    });
 
     if (portraitWrapper) {
       const rect = portraitWrapper.getBoundingClientRect();
       if (rect.top < wh && rect.bottom > 0) {
         const progress = (wh - rect.top) / (wh + rect.height);
-        const offset = (progress - 0.5) * -20;
+        const offset = (progress - 0.5) * -10;
         portraitWrapper.style.transform = `translateY(${offset}px)`;
       }
     }
@@ -371,7 +384,7 @@
   const contactInner = document.querySelector('.contact-card__inner');
 
   function updateContactSpotlight() {
-    if (!contactInner) return;
+    if (!contactInner || prefersReducedMotion || !hasFinePointer) return;
     const rect = contactInner.getBoundingClientRect();
     if (rect.top > window.innerHeight || rect.bottom < 0) return;
     const x = mouseX - rect.left;
@@ -388,6 +401,7 @@
   if (canvas && !prefersReducedMotion) {
     const ctx = canvas.getContext('2d');
     let cw, ch;
+    let dpr = 1;
     let blobs = [];
 
     class AuroraBlob {
@@ -442,21 +456,24 @@
     function initAurora() {
       cw = window.innerWidth;
       ch = window.innerHeight;
-      canvas.width = cw;
-      canvas.height = ch;
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = cw * dpr;
+      canvas.height = ch * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const rFactor = Math.min(cw, ch) * 0.35;
       blobs = [
-        new AuroraBlob(cw * 0.24, ch * 0.26, rFactor + 110, 122, 158, 125, 0.14),
-        new AuroraBlob(cw * 0.74, ch * 0.44, rFactor + 70, 158, 191, 154, 0.11),
-        new AuroraBlob(cw * 0.52, ch * 0.74, rFactor + 90, 194, 216, 188, 0.12),
-        new AuroraBlob(cw * 0.18, ch * 0.82, rFactor + 10, 101, 138, 107, 0.09),
+        new AuroraBlob(cw * 0.24, ch * 0.26, rFactor + 90, 122, 158, 125, 0.1),
+        new AuroraBlob(cw * 0.74, ch * 0.44, rFactor + 50, 158, 191, 154, 0.08),
+        new AuroraBlob(cw * 0.52, ch * 0.74, rFactor + 70, 194, 216, 188, 0.09),
+        new AuroraBlob(cw * 0.18, ch * 0.82, rFactor, 101, 138, 107, 0.07),
       ];
     }
 
     function drawAurora() {
+      if (prefersReducedMotion || document.hidden) return;
       ctx.clearRect(0, 0, cw, ch);
-      ctx.fillStyle = '#edf5ea';
+      ctx.fillStyle = '#eef5ec';
       ctx.fillRect(0, 0, cw, ch);
 
       blobs.forEach((blob) => {
@@ -477,8 +494,53 @@
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    ctx.fillStyle = '#edf5ea';
+    ctx.fillStyle = '#eef5ec';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function resetInteractiveMotion() {
+    document.body.classList.remove('cursor-hover', 'cursor-text', 'cursor-card');
+    document.querySelectorAll('.magnetic-btn').forEach((el) => {
+      el.style.transform = 'translate(0,0) rotate(0deg)';
+    });
+    document.querySelectorAll('.bento-card__shell, .about__portrait-shell').forEach((el) => {
+      el.style.setProperty('--rx', '0deg');
+      el.style.setProperty('--ry', '0deg');
+    });
+    if (cursorRing) cursorRing.style.opacity = prefersReducedMotion || !hasFinePointer ? '0' : cursorRing.style.opacity;
+    cursorTrails.forEach((trail) => {
+      trail.style.opacity = prefersReducedMotion || !hasFinePointer ? '0' : trail.style.opacity;
+    });
+    if (portraitWrapper && prefersReducedMotion) {
+      portraitWrapper.style.transform = 'translateY(0)';
+    }
+    if (contactInner && (prefersReducedMotion || !hasFinePointer)) {
+      contactInner.style.setProperty('--spot-x', '50%');
+      contactInner.style.setProperty('--spot-y', '50%');
+    }
+  }
+
+  const preferenceListener = (event) => {
+    if (typeof event.matches === 'boolean') {
+      prefersReducedMotion = event.matches;
+    } else {
+      prefersReducedMotion = reducedMotionQuery.matches;
+      hasFinePointer = finePointerQuery.matches;
+    }
+    resetInteractiveMotion();
+  };
+
+  const pointerListener = (event) => {
+    hasFinePointer = event.matches;
+    resetInteractiveMotion();
+  };
+
+  if (typeof reducedMotionQuery.addEventListener === 'function') {
+    reducedMotionQuery.addEventListener('change', preferenceListener);
+    finePointerQuery.addEventListener('change', pointerListener);
+  } else {
+    reducedMotionQuery.addListener(preferenceListener);
+    finePointerQuery.addListener(pointerListener);
   }
 
   /* ========================================================================
@@ -487,7 +549,7 @@
 
   const footerCopy = document.querySelector('.footer__copy');
   if (footerCopy) {
-    footerCopy.innerHTML = `&copy; ${new Date().getFullYear()} Se\u00e1n`;
+    footerCopy.textContent = `\u00a9 ${new Date().getFullYear()} Se\u00e1n`;
   }
 
   /* ========================================================================
