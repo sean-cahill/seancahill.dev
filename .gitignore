@@ -31,3 +31,13 @@ full-site-screenshot.png
 
 # Local backup of portrait before crops (do not commit)
 sean-portrait-original.jpg
+
+# Private / internal (not for public clones)
+Business Docs/
+LAUNCH_TODO.md
+
+# Secrets & local overrides (if you add them later)
+.env
+.env.*
+!.env.example
+*.pem
