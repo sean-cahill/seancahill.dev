@@ -1148,7 +1148,7 @@ body:not(.is-loading) .loader {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
   font-family: var(--font-mono);
@@ -1163,6 +1163,7 @@ body:not(.is-loading) .loader {
 .flagship-case__title {
   font-size: clamp(2rem, 4vw, 3rem);
   max-width: 11ch;
+  margin-bottom: 1.25rem;
 }
 
 .flagship-case__desc {
@@ -1877,6 +1878,7 @@ body:not(.is-loading) .loader {
 
   .flagship-case__title {
     font-size: 1.8rem;
+    margin-bottom: 0.85rem;
   }
 
   .flagship-case__desc {
