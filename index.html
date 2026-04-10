@@ -58,10 +58,10 @@
         </svg>
       </a>
       <div class="nav__links">
-        <a href="#work" class="nav__link">Work</a>
-        <a href="#workflow" class="nav__link">Scenarios</a>
         <a href="#services" class="nav__link">Services</a>
         <a href="#process" class="nav__link">Process</a>
+        <a href="#workflow" class="nav__link">Scenarios</a>
+        <a href="#work" class="nav__link">Past Work</a>
         <a href="#about" class="nav__link">About</a>
         <a href="#contact" class="btn btn--primary nav__cta magnetic-btn">
           <span class="btn__text">Get in touch</span>
@@ -153,140 +153,190 @@
     </div>
   </div>
 
-  <!-- Work (Deployed Agents) -->
-  <section class="work" id="work">
+  <!-- Services -->
+  <section class="services" id="services">
     <div class="section-header anim-scroll">
       <div class="section-header__inner">
         <span class="section-header__number">01</span>
-        <h2 class="section-header__title">Selected Systems</h2>
+        <h2 class="section-header__title">Services</h2>
       </div>
     </div>
-    <p class="section-intro work-intro anim-scroll">
-      A few representative systems I have built for teams that needed faster answers, cleaner handoffs, and less operational glue work.
+    <p class="section-intro services-intro anim-scroll">
+      Practical AI systems that handle lead capture, scheduling, customer interactions, reporting, and competitive intelligence &mdash; built to run quietly in the background while you focus on the work that matters.
     </p>
 
     <div class="bento-grid">
-      <article class="bento-card bento-card--full bento-card--flagship anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core flagship-case">
-            <div class="agent__meta flagship-case__meta">
-              <span class="agent__tag">NL-to-SQL / Snowflake / dbt</span>
-              <span class="agent__impact">~10x faster answers</span>
-            </div>
-            <div class="flagship-case__grid">
-              <div class="flagship-case__lead">
-                <span class="flagship-case__eyebrow">Flagship system</span>
-                <h3 class="agent__name flagship-case__title">Self-Serve Data Analyst</h3>
-                <p class="agent__desc flagship-case__desc">A natural-language analytics workflow that lets commercial teams ask business questions in plain English, then turns those requests into checked SQL against documented company data.</p>
-              </div>
-              <div class="flagship-case__details">
-                <div class="flagship-case__item">
-                  <span class="flagship-case__label">Problem</span>
-                  <p>Analysts were losing time to repetitive reporting requests while non-technical teams still had to wait for straightforward answers.</p>
-                </div>
-                <div class="flagship-case__item">
-                  <span class="flagship-case__label">Build</span>
-                  <p>Created a guarded NL-to-SQL flow with model context, query checks, and documented table logic so teams could ask better questions without bypassing data discipline.</p>
-                </div>
-                <div class="flagship-case__item">
-                  <span class="flagship-case__label">Outcome</span>
-                  <p>Saves 16 to 20 hours of analyst time each month and gives commercial teams faster answers without creating a parallel BI process.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Agent 1 (Large) -->
-      <article class="bento-card bento-card--large anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Slack / KB / NLP</span>
-              <span class="agent__impact">Weekly eval framework</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Internal Answers Copilot</h3>
-              <p class="agent__desc">A shared assistant for sales and support teams that handles repeat questions, pulls the right docs, and shows where the knowledge base is breaking down.</p>
-              <div class="agent__result">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Fewer interruptions for the team. Better documentation gets created as a by-product of everyday use.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Agent 2 (Small) -->
       <article class="bento-card bento-card--small anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">GDPR / Automation</span>
-              <span class="agent__impact">7x faster</span>
+              <span class="agent__tag">Chatbot</span>
+              <span class="agent__impact">24/7</span>
             </div>
             <div class="agent__content">
-              <h3 class="agent__name">Compliance Reply Assistant</h3>
-              <p class="agent__desc">Turns structured inputs into compliant customer replies with the right tone, the right checks, and far less manual drafting.</p>
+              <h3 class="agent__name">Lead Capture Assistant</h3>
+              <p class="agent__desc">Engages website visitors instantly, answers their questions, captures contact details, and qualifies each lead before routing it to you via email or Slack.</p>
               <div class="agent__result">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-                <span>35 min to 5 min per response, without losing legal or brand control.</span>
+                <span>Local services, trades, freelancers, small businesses</span>
               </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Agent 3 (Small) -->
       <article class="bento-card bento-card--small anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">QA / LangFuse</span>
-              <span class="agent__impact">7x faster</span>
+              <span class="agent__tag">Scheduling</span>
+              <span class="agent__impact">Automated</span>
             </div>
             <div class="agent__content">
-              <h3 class="agent__name">QA Review Engine</h3>
-              <p class="agent__desc">Reviews customer conversations at scale, scoring accuracy, tone, and resolution so teams can spot patterns without sitting through endless manual checks.</p>
+              <h3 class="agent__name">Booking Assistant</h3>
+              <p class="agent__desc">Handles appointment scheduling through natural conversation, checks real-time availability, confirms bookings automatically, and manages rescheduling without manual back-and-forth.</p>
               <div class="agent__result">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-                <span>Evaluation cycles dropped from 15 to 20 minutes to 2 to 3, with full chat coverage.</span>
+                <span>Salons, clinics, restaurants, coaches</span>
               </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- Agent 4 (Large) -->
-      <article class="bento-card bento-card--large anim-scroll">
+      <article class="bento-card bento-card--small anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">dbt / SQL Lineage</span>
-              <span class="agent__impact">On-demand clarity</span>
+              <span class="agent__tag">Premium</span>
+              <span class="agent__impact">Full system</span>
             </div>
             <div class="agent__content">
-              <div class="agent__split">
-                <div class="agent__split-left">
-                  <h3 class="agent__name">Metric Source Finder</h3>
-                  <p class="agent__desc">Tracks business metrics back to their source and explains them in plain English, so stakeholders can get clarity without interrupting the data team.</p>
-                </div>
-                <div class="agent__split-right">
-                  <div class="agent__result">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                    <span>Clearer reporting, fewer side questions, and less time lost explaining the same number twice.</span>
-                  </div>
-                </div>
+              <h3 class="agent__name">Conversational Ops System</h3>
+              <p class="agent__desc">A multi-module chatbot with smart intent routing, full conversation memory, CRM and calendar integration, analytics, and human escalation built in.</p>
+              <div class="agent__result">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Growing businesses, high-volume inbound teams</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bento-card bento-card--half anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Intelligence</span>
+              <span class="agent__impact">Weekly</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Weekly Business Reports</h3>
+              <p class="agent__desc">Connects to your CRM, analytics, and sales data, analyses performance patterns, and delivers a clear weekly report with trends, missed opportunities, and actionable recommendations.</p>
+              <div class="agent__result">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Any business with inbound traffic or a CRM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bento-card bento-card--half anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Strategy</span>
+              <span class="agent__impact">Recurring</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Competitor Intelligence</h3>
+              <p class="agent__desc">Tracks competitor websites, pricing pages, reviews, and social channels automatically, then delivers regular reports covering pricing changes, new services, customer sentiment, and market gaps.</p>
+              <div class="agent__result">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Competitive local businesses, agencies, SaaS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process" id="process">
+    <div class="section-header anim-scroll">
+      <div class="section-header__inner">
+        <span class="section-header__number">02</span>
+        <h2 class="section-header__title">The Process</h2>
+      </div>
+    </div>
+    <p class="section-intro process-intro anim-scroll">
+      No guesswork. Here is exactly how we go from our first conversation to a deployed system that saves you hours every week.
+    </p>
+
+    <div class="bento-grid">
+      <article class="bento-card bento-card--quarter anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Step 01</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Free AI Audit</h3>
+              <p class="agent__desc">A 30-minute discovery call where we unpack your biggest bottlenecks, repetitive tasks, and operational headaches.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bento-card bento-card--quarter anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Step 02</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Custom Blueprint</h3>
+              <p class="agent__desc">I deliver a no-obligation report detailing the exact automations, tools, and expected ROI for your specific business.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bento-card bento-card--quarter anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Step 03</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Build & Deploy</h3>
+              <p class="agent__desc">If you want to move forward, I build the systems and integrate them directly into the tools your team already uses.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="bento-card bento-card--quarter anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">Step 04</span>
+            </div>
+            <div class="agent__content">
+              <h3 class="agent__name">Ongoing Evolution</h3>
+              <p class="agent__desc">We continue working together on a retainer to provide support, updates, and continuous improvements to your systems.</p>
             </div>
           </div>
         </div>
@@ -298,7 +348,7 @@
   <section class="workflow" id="workflow">
     <div class="section-header anim-scroll">
       <div class="section-header__inner">
-        <span class="section-header__number">02</span>
+        <span class="section-header__number">03</span>
         <h2 class="section-header__title">Scenario Walkthroughs</h2>
       </div>
     </div>
@@ -573,190 +623,140 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="section-header anim-scroll">
-      <div class="section-header__inner">
-        <span class="section-header__number">03</span>
-        <h2 class="section-header__title">Services</h2>
-      </div>
-    </div>
-    <p class="section-intro services-intro anim-scroll">
-      Practical AI systems that handle lead capture, scheduling, customer interactions, reporting, and competitive intelligence &mdash; built to run quietly in the background while you focus on the work that matters.
-    </p>
-
-    <div class="bento-grid">
-      <article class="bento-card bento-card--small anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Chatbot</span>
-              <span class="agent__impact">24/7</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Lead Capture Assistant</h3>
-              <p class="agent__desc">Engages website visitors instantly, answers their questions, captures contact details, and qualifies each lead before routing it to you via email or Slack.</p>
-              <div class="agent__result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Local services, trades, freelancers, small businesses</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="bento-card bento-card--small anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Scheduling</span>
-              <span class="agent__impact">Automated</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Booking Assistant</h3>
-              <p class="agent__desc">Handles appointment scheduling through natural conversation, checks real-time availability, confirms bookings automatically, and manages rescheduling without manual back-and-forth.</p>
-              <div class="agent__result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Salons, clinics, restaurants, coaches</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="bento-card bento-card--small anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Premium</span>
-              <span class="agent__impact">Full system</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Conversational Ops System</h3>
-              <p class="agent__desc">A multi-module chatbot with smart intent routing, full conversation memory, CRM and calendar integration, analytics, and human escalation built in.</p>
-              <div class="agent__result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Growing businesses, high-volume inbound teams</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="bento-card bento-card--half anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Intelligence</span>
-              <span class="agent__impact">Weekly</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Weekly Business Reports</h3>
-              <p class="agent__desc">Connects to your CRM, analytics, and sales data, analyses performance patterns, and delivers a clear weekly report with trends, missed opportunities, and actionable recommendations.</p>
-              <div class="agent__result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Any business with inbound traffic or a CRM</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="bento-card bento-card--half anim-scroll">
-        <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Strategy</span>
-              <span class="agent__impact">Recurring</span>
-            </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Competitor Intelligence</h3>
-              <p class="agent__desc">Tracks competitor websites, pricing pages, reviews, and social channels automatically, then delivers regular reports covering pricing changes, new services, customer sentiment, and market gaps.</p>
-              <div class="agent__result">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-                <span>Competitive local businesses, agencies, SaaS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="process" id="process">
+  <!-- Work (Deployed Agents) -->
+  <section class="work" id="work">
     <div class="section-header anim-scroll">
       <div class="section-header__inner">
         <span class="section-header__number">04</span>
-        <h2 class="section-header__title">The Process</h2>
+        <h2 class="section-header__title">Past Work</h2>
       </div>
     </div>
-    <p class="section-intro process-intro anim-scroll">
-      No guesswork. Here is exactly how we go from our first conversation to a deployed system that saves you hours every week.
+    <p class="section-intro work-intro anim-scroll">
+      A few representative systems I have built for teams that needed faster answers, cleaner handoffs, and less operational glue work.
     </p>
 
     <div class="bento-grid">
-      <article class="bento-card bento-card--quarter anim-scroll">
+      <article class="bento-card bento-card--full bento-card--flagship anim-scroll">
         <div class="bento-card__shell">
-          <div class="bento-card__core">
-            <div class="agent__meta">
-              <span class="agent__tag">Step 01</span>
+          <div class="bento-card__core flagship-case">
+            <div class="agent__meta flagship-case__meta">
+              <span class="agent__tag">NL-to-SQL / Snowflake / dbt</span>
+              <span class="agent__impact">~10x faster answers</span>
             </div>
-            <div class="agent__content">
-              <h3 class="agent__name">Free AI Audit</h3>
-              <p class="agent__desc">A 30-minute discovery call where we unpack your biggest bottlenecks, repetitive tasks, and operational headaches.</p>
+            <div class="flagship-case__grid">
+              <div class="flagship-case__lead">
+                <span class="flagship-case__eyebrow">Flagship system</span>
+                <h3 class="agent__name flagship-case__title">Self-Serve Data Analyst</h3>
+                <p class="agent__desc flagship-case__desc">A natural-language analytics workflow that lets commercial teams ask business questions in plain English, then turns those requests into checked SQL against documented company data.</p>
+              </div>
+              <div class="flagship-case__details">
+                <div class="flagship-case__item">
+                  <span class="flagship-case__label">Problem</span>
+                  <p>Analysts were losing time to repetitive reporting requests while non-technical teams still had to wait for straightforward answers.</p>
+                </div>
+                <div class="flagship-case__item">
+                  <span class="flagship-case__label">Build</span>
+                  <p>Created a guarded NL-to-SQL flow with model context, query checks, and documented table logic so teams could ask better questions without bypassing data discipline.</p>
+                </div>
+                <div class="flagship-case__item">
+                  <span class="flagship-case__label">Outcome</span>
+                  <p>Saves 16 to 20 hours of analyst time each month and gives commercial teams faster answers without creating a parallel BI process.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="bento-card bento-card--quarter anim-scroll">
+      <!-- Agent 1 (Large) -->
+      <article class="bento-card bento-card--large anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">Step 02</span>
+              <span class="agent__tag">Slack / KB / NLP</span>
+              <span class="agent__impact">Weekly eval framework</span>
             </div>
             <div class="agent__content">
-              <h3 class="agent__name">Custom Blueprint</h3>
-              <p class="agent__desc">I deliver a no-obligation report detailing the exact automations, tools, and expected ROI for your specific business.</p>
+              <h3 class="agent__name">Internal Answers Copilot</h3>
+              <p class="agent__desc">A shared assistant for sales and support teams that handles repeat questions, pulls the right docs, and shows where the knowledge base is breaking down.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Fewer interruptions for the team. Better documentation gets created as a by-product of everyday use.</span>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="bento-card bento-card--quarter anim-scroll">
+      <!-- Agent 2 (Small) -->
+      <article class="bento-card bento-card--small anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">Step 03</span>
+              <span class="agent__tag">GDPR / Automation</span>
+              <span class="agent__impact">7x faster</span>
             </div>
             <div class="agent__content">
-              <h3 class="agent__name">Build & Deploy</h3>
-              <p class="agent__desc">If you want to move forward, I build the systems and integrate them directly into the tools your team already uses.</p>
+              <h3 class="agent__name">Compliance Reply Assistant</h3>
+              <p class="agent__desc">Turns structured inputs into compliant customer replies with the right tone, the right checks, and far less manual drafting.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>35 min to 5 min per response, without losing legal or brand control.</span>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <article class="bento-card bento-card--quarter anim-scroll">
+      <!-- Agent 3 (Small) -->
+      <article class="bento-card bento-card--small anim-scroll">
         <div class="bento-card__shell">
           <div class="bento-card__core">
             <div class="agent__meta">
-              <span class="agent__tag">Step 04</span>
+              <span class="agent__tag">QA / LangFuse</span>
+              <span class="agent__impact">7x faster</span>
             </div>
             <div class="agent__content">
-              <h3 class="agent__name">Ongoing Evolution</h3>
-              <p class="agent__desc">We continue working together on a retainer to provide support, updates, and continuous improvements to your systems.</p>
+              <h3 class="agent__name">QA Review Engine</h3>
+              <p class="agent__desc">Reviews customer conversations at scale, scoring accuracy, tone, and resolution so teams can spot patterns without sitting through endless manual checks.</p>
+              <div class="agent__result">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                <span>Evaluation cycles dropped from 15 to 20 minutes to 2 to 3, with full chat coverage.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Agent 4 (Large) -->
+      <article class="bento-card bento-card--large anim-scroll">
+        <div class="bento-card__shell">
+          <div class="bento-card__core">
+            <div class="agent__meta">
+              <span class="agent__tag">dbt / SQL Lineage</span>
+              <span class="agent__impact">On-demand clarity</span>
+            </div>
+            <div class="agent__content">
+              <div class="agent__split">
+                <div class="agent__split-left">
+                  <h3 class="agent__name">Metric Source Finder</h3>
+                  <p class="agent__desc">Tracks business metrics back to their source and explains them in plain English, so stakeholders can get clarity without interrupting the data team.</p>
+                </div>
+                <div class="agent__split-right">
+                  <div class="agent__result">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-result" aria-hidden="true">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span>Clearer reporting, fewer side questions, and less time lost explaining the same number twice.</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
