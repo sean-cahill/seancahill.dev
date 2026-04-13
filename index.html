@@ -72,8 +72,31 @@
           </span>
         </a>
       </div>
+      <button class="nav__hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <a href="#services" class="mobile-menu__link">Services</a>
+      <a href="#process" class="mobile-menu__link">Process</a>
+      <a href="#workflow" class="mobile-menu__link">Scenarios</a>
+      <a href="#work" class="mobile-menu__link">Past Work</a>
+      <a href="#about" class="mobile-menu__link">About</a>
+      <a href="#contact" class="btn btn--primary mobile-menu__cta">
+        <span class="btn__text">Get in touch</span>
+        <span class="btn__icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="icon-arrow" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
 
   <main id="main-content">
 

@@ -553,6 +553,44 @@
   }
 
   /* ========================================================================
+     MOBILE MENU LOGIC
+     ======================================================================== */
+
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta');
+  let isMenuOpen = false;
+
+  function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (hamburger) {
+      hamburger.setAttribute('aria-expanded', isMenuOpen);
+    }
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('is-open', isMenuOpen);
+      if (isMenuOpen) {
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Lock scroll
+      } else {
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = ''; // Unlock scroll
+      }
+    }
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMobileMenu);
+  }
+
+  if (mobileMenuLinks.length) {
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMobileMenu();
+      });
+    });
+  }
+
+  /* ========================================================================
      MASTER RAF LOOP
      ======================================================================== */
 

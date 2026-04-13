@@ -343,7 +343,7 @@ body:not(.is-loading) .loader {
 }
 
 /* ==========================================================================
-   NAVIGATION ISLAND
+   NAVIGATION ISLAND & MOBILE MENU
    ========================================================================== */
 
 .nav-island {
@@ -443,6 +443,108 @@ body:not(.is-loading) .loader {
 .nav__link.active-section::after {
   transform: scaleX(0.3);
   opacity: 0.6;
+}
+
+/* Mobile Hamburger Button */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 50;
+  padding: 0;
+  border-radius: 50%;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.nav__hamburger:hover {
+  background-color: rgba(86, 124, 93, 0.08);
+}
+
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform var(--duration-fast) var(--ease-spring),
+              opacity var(--duration-fast) var(--ease-out);
+  transform-origin: center;
+}
+
+.nav__hamburger[aria-expanded="true"] .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.nav__hamburger[aria-expanded="true"] .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: rgba(238, 245, 236, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out);
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-menu__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem;
+  transform: translateY(2rem);
+  transition: transform 0.5s var(--ease-spring);
+}
+
+.mobile-menu.is-open .mobile-menu__inner {
+  transform: translateY(0);
+}
+
+.mobile-menu__link {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  position: relative;
+  padding: 0.5rem 1rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu__cta {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 280px;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0.75rem 1.5rem;
 }
 
 /* ==========================================================================
@@ -1749,17 +1851,17 @@ body:not(.is-loading) .loader {
   }
 
   .nav__cta {
-    padding-left: 0.95rem;
+    display: none; /* Hide desktop CTA on mobile, show hamburger instead */
   }
 
-  .nav__cta .btn__text {
-    font-size: 0.82rem;
+  .nav__hamburger {
+    display: flex;
   }
 
   .hero {
     align-items: flex-start;
     min-height: auto;
-    padding: 7rem 1.25rem 3.5rem;
+    padding: 6rem 1.25rem 3rem;
   }
 
   .hero__content {
@@ -1792,6 +1894,7 @@ body:not(.is-loading) .loader {
   .hero__title {
     font-size: clamp(2.35rem, 12vw, 3.4rem);
     max-width: 9ch;
+    margin-bottom: 1rem;
   }
 
   .hero__sub {
@@ -1812,6 +1915,7 @@ body:not(.is-loading) .loader {
   .hero__actions .btn {
     width: 100%;
     justify-content: space-between;
+    min-height: 48px; /* Better touch target */
   }
 
   .hero__trust {
@@ -1846,7 +1950,7 @@ body:not(.is-loading) .loader {
   .process,
   .about,
   .contact {
-    padding: 5rem 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .section-intro {
@@ -1868,7 +1972,7 @@ body:not(.is-loading) .loader {
   }
 
   .bento-card__core {
-    padding: 1.35rem;
+    padding: 1.15rem; /* Reduced from 1.35rem for less bulk on mobile */
     gap: 1.15rem;
   }
 
@@ -1922,6 +2026,7 @@ body:not(.is-loading) .loader {
     margin-bottom: 1.5rem;
     padding-bottom: 0.2rem;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 
   .workflow-toggles::-webkit-scrollbar {
@@ -1932,24 +2037,25 @@ body:not(.is-loading) .loader {
     flex: 0 0 auto;
     white-space: nowrap;
     padding: 0.72rem 1rem;
+    min-height: 44px; /* Better touch target */
   }
 
   .workflow__wire {
-    left: 0.7rem;
+    left: 1.25rem; /* Moved further right to give more breathing room */
   }
 
   .workflow-node {
-    width: calc(100% - 1.7rem);
+    width: calc(100% - 2.5rem); /* Adjusted for new wire position */
     margin-bottom: 2.25rem;
   }
 
   .workflow-node:nth-child(odd) .workflow-node__dot,
   .workflow-node:nth-child(even) .workflow-node__dot {
-    left: -1.4rem;
+    left: -1.25rem; /* Adjusted to sit exactly on the new wire position */
   }
 
   .workflow-node__core {
-    padding: 1.35rem;
+    padding: 1.15rem; /* Match new bento core padding */
   }
 
   .workflow-brand {
