@@ -14,7 +14,9 @@ Seán Cahill translates business work into bounded, measurable, governed AI capa
 
 Hero: "Work first. Then the model."
 
-Do not reintroduce client-services language: AI operating systems for businesses, chatbots, booking assistants, competitor intel, process funnels, intro calls, WhatsApp, or Google Calendar booking.
+Work is stated as capabilities, not case studies. Pitched at a general audience, so Work stays abstract: no client names, vendor or tool names, or metrics in that section. Exciting but mysterious. The detail belongs in the conversation, not on the page. The About stack pills are the one place tool names still belong.
+
+Do not reintroduce: AI operating systems for businesses, booking assistants, competitor intel, intro calls, WhatsApp, or Google Calendar booking.
 
 ## Visual system (Hyperstudio)
 
@@ -46,7 +48,7 @@ Rules:
 
 Single page: Hero, Work, Approach, About, Write.
 
-- **Work:** Data Helper, Field Sales First Responder, Complaints Responder, Session QA Evaluator. Evidence-led metrics only. No Metric Source Finder. No service cards.
+- **Work:** four capability cards in the 2x2 frame. Automations, AI chatbots, Websites, Enablement. One mono meta word, one title, one short body each. No `cell__outcome`, no metrics, no named systems, no stack names. Do not expand these back into case studies.
 - **Approach:** Start with the work; permissions outside the model; cost per successful task; pilot, evaluate, scale or stop. Then the manifesto line.
 - **About:** SumUp path, translator role, stack pills (SQL, Snowflake, dbt, Python, Tableau, Langdock, Cursor, Git). Portrait in About only. No hobby copy.
 - **Write:** `seanrcahill@gmail.com` and LinkedIn. No WhatsApp. No calendar.
@@ -74,7 +76,8 @@ No em dashes. No "we". No ROI-deck tone. Operator voice. Keep the key lines: wor
 
 ## [Resolved issues / learnings]
 
-- Agency Services / Process / Scenarios plus booking CTAs made the site read as a freelancer template. The portfolio is selected production systems and how Seán thinks.
+- Agency Services / Process / Scenarios plus booking CTAs made the site read as a freelancer template. Capabilities are fine. Multi-step funnels and booking widgets are not.
+- Named case studies with tool names and hard metrics (Snowflake, dbt, LangFuse, hours saved) went too deep for a general audience and gave away more than the page needs to. September 2026: replaced by four abstract capability cards. Approach carries the thinking instead.
 - Light sage and an earlier dark-gold pass both missed the brief. Live system is Hyperstudio obsidian.
 - Stacked Awwwards motion (cursor, aurora, marquee, loader) fought the hairline-on-obsidian language. Strip it.
 - n8n / Notion / OpenAI / HTML as identity pills read freelancer. Keep the data and enablement stack.
